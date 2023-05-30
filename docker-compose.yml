@@ -1,0 +1,27 @@
+version: 'v2.17.3'
+services:
+  dev-db:
+    container_name: first-nest-api-dev-db-1
+    image: postgres:13
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    networks:
+      - nestserver
+
+  test-db:
+    container_name: first-nest-api-test-db-1
+    image: postgres:13
+    ports:
+      - 5436:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    networks:
+      - nestserver
+networks:
+  nestserver:
